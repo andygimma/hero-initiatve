@@ -26,7 +26,8 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                                 <li><a href="#" accesskey="4" title="">Calendar</a></li>
                                 <li><a href="#" accesskey="5" title="">Map</a></li>
                                 <li><a href="#" accesskey="6" title="">Contact Us</a></li>
-                                <li><a href="#" accesskey="7" title="">Login</a></li>
+                                <li><a href="#" accesskey="7" title="">Alerts</a></li>
+                                <li><a href="#" accesskey="8" title="">Login</a></li>
 
                         </ul>
                 </div>
@@ -44,6 +45,11 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 <div id="wrapper">
         <div id="three-column" class="container">
                 <div class="title">
+                        <%= yield %>
+                        <p class="notice"><%= notice %></p>
+                        <p class="alert"><%= alert %></p>
+
+                        
                         <h2>Feugiat lorem ipsum dolor sed veroeros</h2>
                         <span class="byline">Donec leo, vivamus fermentum nibh in augue praesent a lacus at urna congue</span>
                 </div>
