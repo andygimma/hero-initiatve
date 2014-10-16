@@ -1,2 +1,11 @@
-<h1>Locations#new</h1>
-<p>Find me in app/views/locations/new.html.erb</p>
+<h1>Locations new</h1>
+<%= form_for @location do |f| %>
+  Name: <%= f.text_field :name %></br>
+  Address: <%= f.text_field :address %></br>
+  City: <%= f.text_field :city %></br>
+  State: <%= f.text_field :state %></br>
+  Phone: <%= f.text_field :phone1 %></br>
+  Email: <%= f.text_field :email %></br>
+
+  <%= f.submit "Add Location", class: "btn btn-warning" %>
+<% end %>
