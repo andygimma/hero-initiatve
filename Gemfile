@@ -40,3 +40,6 @@ gem 'spring',        group: :development
 
 gem 'devise'
 
+gem "geocoder"
+
+gem 'will_paginate', '~> 3.0'

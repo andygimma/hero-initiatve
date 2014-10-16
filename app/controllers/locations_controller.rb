@@ -29,7 +29,9 @@ class LocationsController < ApplicationController
   end
 
   def index
-    @locations = Location.all # TODO paginate, make searchable
+#     @locations = Location.all # TODO paginate, make searchable
+    @locations = Location.paginate(:page => params[:page])
+
   end
   
   private
