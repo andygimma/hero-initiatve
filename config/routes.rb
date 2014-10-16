@@ -1,4 +1,18 @@
 Rails.application.routes.draw do
+  get 'location/new'
+
+  get 'location/create'
+
+  get 'location/update'
+
+  get 'location/edit'
+
+  get 'location/destroy'
+
+  get 'location/show'
+
+  get 'location/index'
+
   devise_for :users
   root 'static_pages#index'
   # The priority is based upon order of creation: first created -> highest priority.
