@@ -43,3 +43,9 @@ gem 'devise'
 gem "geocoder"
 
 gem 'will_paginate', '~> 3.0'
+
+gem 'leaflet-rails'
+
+gem 'leaflet-markercluster-rails', '~> 0.7.0'
+
+gem 'pry-rails'
