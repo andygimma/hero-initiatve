@@ -1,17 +1,5 @@
 Rails.application.routes.draw do
-  get 'location/new'
-
-  get 'location/create'
-
-  get 'location/update'
-
-  get 'location/edit'
-
-  get 'location/destroy'
-
-  get 'location/show'
-
-  get 'location/index'
+  resources :locations
 
   devise_for :users
   root 'static_pages#index'
