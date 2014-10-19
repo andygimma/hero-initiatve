@@ -24,8 +24,8 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                 <div id="menu">
                         <ul>
                                 <li class="active"><a href="/" accesskey="1" title="">Homepage</a></li>
-                                <li><a href="#" accesskey="2" title="">Workshops</a></li>
-                                <li><a href="#" accesskey="3" title="">Locations</a></li>
+                                <li><a href="/workshops" accesskey="2" title="">Workshops</a></li>
+                                <li><a href="/locations" accesskey="3" title="">Locations</a></li>
                                 <li><a href="#" accesskey="4" title="">Calendar</a></li>
                                 <li><a href="/locations/map" accesskey="5" title="">Map</a></li>
                                 <li><a href="#" accesskey="6" title="">Contact</a></li>
@@ -35,6 +35,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                         </ul>
                 </div>
         </div>
+        <% if user_signed_in? %>
         <div id="banner" class="container">
                 <div class="title">
                         <h2>H.E.R.O. Initiative<h2>
@@ -45,6 +46,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                         <li><a href="#" class="button">Learn More</a></li>
                 </ul>
         </div>
+        <% end %>
 </div>
 <div id="wrapper">
         <div id="three-column" class="container">
@@ -52,34 +54,20 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                         <%= yield %>
                         <p class="notice"><%= notice %></p>
                         <p class="alert"><%= alert %></p>
+                </div>
 
-                        
-                        <h2>Feugiat lorem ipsum dolor sed veroeros</h2>
-                        <span class="byline">Donec leo, vivamus fermentum nibh in augue praesent a lacus at urna congue</span>
-                </div>
-                <div class="boxA">
-                        <p>Phasellus pellentesque, ante nec iaculis dapibus, eros justo auctor lectus, a lobortis lorem mauris quis nunc. Praesent pellentesque facilisis elit. Class aptent taciti sociosqu ad  torquent per conubia nostra.</p>
-                        <a href="#" class="button button-alt">More Info</a>
-                </div>
-                <div class="boxB">
-                        <p>Etiam neque. Vivamus consequat lorem at nisl. Nullam  wisi a sem semper eleifend. Donec mattis. Phasellus pellentesque, ante nec iaculis dapibus, eros justo auctor lectus, a lobortis lorem mauris quis nunc.</p>
-                        <a href="#" class="button button-alt">More Info</a>
-                </div>
-                <div class="boxC">
-                        <p> Aenean lectus lorem, imperdiet at, ultrices eget, ornare et, wisi. Pellentesque adipiscing purus. Phasellus pellentesque, ante nec iaculis dapibus, eros justo auctor lectus, a lobortis lorem mauris quis nunc.</p>
-                        <a href="#" class="button button-alt">More Info</a>
-                </div>
         </div>
 </div>
 <div id="welcome">
         <div class="container">
                 <div class="title">
-                        <h2>Fusce ultrices fringilla metus</h2>
-                        <span class="byline">Donec leo, vivamus fermentum nibh in augue praesent a lacus at urna congue</span>
+                        <h2>Everyone is a H.E.R.O.</h2>
+                        <span class="byline">Help share the human resource and allow it to be accessed through the H.E.R.O Initiative</span>
                 </div>
-                <p>This is <strong>Assembly</strong>, a free, fully standards-compliant CSS template designed by <a href="http://templated.co" rel="nofollow">TEMPLATED</a>. The photos in this template are from <a href="http://fotogrph.com/"> Fotogrph</a>. This free template is released under the <a href="http://templated.co/license">Creative Commons Attribution</a> license, so you're pretty much free to do whatever you want with it (even use it commercially) provided you give us credit for it. Have fun :) </p>
+                <p>Do you have a skill or a particular interest that you would like to share?</p>
+                <p>Are you willing to conduct (2) or (3) 1.5hr workshops at least every year sharing that skill?</p>
                 <ul class="actions">
-                        <li><a href="#" class="button">Etiam posuere</a></li>
+                        <li><a href="https://docs.google.com/forms/d/1CCKweW6P0mAyQWjUBitX8lxEprzYGuZJFnutVS_F6fo/viewform" class="button">Sign up here</a></li>
                 </ul>
         </div>
 </div>
