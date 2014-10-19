@@ -1,0 +1,3 @@
+<h1><%= @workshop.title %></h1>
+<%= link_to "Delete", @workshop, method: :delete,
+      data: { confirm: "Delete: You sure? Cannot undo a delete." } %>

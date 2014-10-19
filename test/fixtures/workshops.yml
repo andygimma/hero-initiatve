@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  title: MyString
+  context: MyText
+  places_id: 1
+  date: 2014-10-18
+  start_time: 2014-10-18 22:40:50
+  end_time: 2014-10-18 22:40:50
+
+two:
+  title: MyString
+  context: MyText
+  places_id: 1
+  date: 2014-10-18
+  start_time: 2014-10-18 22:40:50
+  end_time: 2014-10-18 22:40:50

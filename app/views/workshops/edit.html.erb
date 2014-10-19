@@ -1,0 +1,10 @@
+<h1>Locations new</h1>
+<%= form_for @workshop do |f| %>
+  Location <%= f.select(:places_id, @locations.all.collect {|a| [a.name, a.id]}, :include_blank => "Choose a Location") -%></br>
+  Name: <%= f.text_field :title %></br>
+  Content: <%= f.text_area :context %></br>
+  Date: <%= f.date_select :date %></br>
+  Start Time: <%= f.time_select :start_time %></br>
+  End Time: <%= f.time_select :end_time %></br>
+  <%= f.submit "Add Location", class: "btn btn-warning" %>
+<% end %>
