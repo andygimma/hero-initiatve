@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
   get 'admin/index'
+  get 'static_pages/about'
+
   match "create_user", to: "admin#create_user", via: [:get, :post]
   resources :workshops
   get 'locations/map' => 'locations#map'
