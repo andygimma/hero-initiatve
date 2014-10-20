@@ -30,12 +30,11 @@ class LocationsController < ApplicationController
   end
 
   def index
-    @locations = Location.paginate(:page => params[:page])
+    @locations = Location.paginate(:page => params[:page]).order(:name)
   end
   
   def map
     @locations = Location.all
-#     binding.pry
   end
   
   private

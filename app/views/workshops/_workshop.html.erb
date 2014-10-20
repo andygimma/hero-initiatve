@@ -1,1 +1,6 @@
-<p><%=workshop.title%></p>
+<p>
+<%=workshop.title%>
+<% if user_signed_in? %>
+ | <a href="/workshops/<%= workshop.id %>/edit">Edit</a>
+<% end %>
+</p>

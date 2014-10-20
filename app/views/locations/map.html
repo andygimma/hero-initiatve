@@ -12,7 +12,6 @@ map.setView(new L.LatLng(40.7, -73.9),10);
 map.addLayer(osm);
 <% @locations.each do |location| %>
 L.marker([<%= location.latitude%>, <%=location.longitude%>]).addTo(map)
-    .bindPopup('<%=location.name%>')
-    .openPopup();
+    .bindPopup('<%=location.name%><br><%=location.address%><br><%=location.phone1%><br><%=location.email%><br><p>Upcoming Events</p>');
 <%end%>
 </script>

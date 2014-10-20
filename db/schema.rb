@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141019024050) do
+ActiveRecord::Schema.define(version: 20141020041529) do
 
   create_table "locations", force: true do |t|
     t.string   "name"
@@ -49,9 +49,8 @@ ActiveRecord::Schema.define(version: 20141019024050) do
     t.string   "title"
     t.text     "context"
     t.integer  "places_id"
-    t.date     "date"
-    t.time     "start_time"
-    t.time     "end_time"
+    t.datetime "start_time"
+    t.datetime "end_time"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

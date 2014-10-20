@@ -33,7 +33,9 @@ class WorkshopsController < ApplicationController
   end
 
   def index
-    @workshops = Workshop.paginate(:page => params[:page])
+    # get only after today's date
+    some_date = Date.yesterday
+    @workshops = Workshop.paginate(:page => params[:page]).where("start_time >= :date", date: some_date).order(start_time: :desc)
   end
   
   private
