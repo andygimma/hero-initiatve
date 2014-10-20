@@ -8,10 +8,15 @@ class AdminController < ApplicationController
     if not current_user
       redirect_to root_path
     end
+    if params["password"].length < 8
+      flash[:alert] = "Password must be at least 8 characters"
+      redirect_to "/admin/index"
+      return
+    end
     u = User.new(:email => params["email"], :password => params["password"], :password_confirmation => params["password"])
     u.save
     
-    redirect_to "/admin"
+    flash[:notice] = "#{params["email"]} added"
+    redirect_to "/admin/index"
   end
-
 end

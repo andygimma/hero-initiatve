@@ -6,7 +6,18 @@ class LocationsController < ApplicationController
 
   def create
     @location= Location.create(location_params)
-    redirect_to locations_path
+    if @location.valid?
+      redirect_to locations_path
+    else
+      str = ""
+      @location.errors.each do |e|
+        str += "#{e.to_s} is invalid\n"
+      end
+      flash[:alert] = str
+      @location
+#       binding.pry
+      redirect_to "/locations/new"
+    end
   end
 
   def update

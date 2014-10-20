@@ -8,7 +8,18 @@ class WorkshopsController < ApplicationController
 
   def create
     @workshop= Workshop.create(workshop_params)
-    redirect_to workshops_path
+    if @workshop.valid?
+      redirect_to workshops_path
+    else
+      str = ""
+      @workshop.errors.messages.each do |e|
+        str += "#{e.to_s}"
+      end
+      flash[:alert] = str
+      @location
+#       binding.pry
+      redirect_to "/workshops/new"
+    end
   end
 
   def update
