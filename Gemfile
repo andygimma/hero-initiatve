@@ -55,3 +55,5 @@ gem 'leaflet-rails'
 gem 'leaflet-markercluster-rails', '~> 0.7.0'
 
 gem 'pry-rails'
+
+gem 'rails_12factor', group: :production
