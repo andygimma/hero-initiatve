@@ -55,7 +55,7 @@
 	{
 		overflow: hidden;
 		margin: 0em auto;
-		width: 1200px;
+		width: 90%;
 	}
 	
 /*********************************************************************************/
@@ -224,7 +224,7 @@
 	.boxB,
 	.boxC
 	{
-		width: 384px;
+		width: 31%;
 	}
 
 	.boxA,
@@ -489,7 +489,7 @@
 	
 	#welcome .container
 	{
-		width: 1000px;
+		width: 70%;
 		padding: 0px 100px;
 		color: rgba(255,255,255,0.8);
 	}
