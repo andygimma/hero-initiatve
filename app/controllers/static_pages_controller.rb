@@ -5,5 +5,6 @@ class StaticPagesController < ApplicationController
   def about
   end
   def sign_up
+    @follower = Follower.new
   end
 end

@@ -3,7 +3,7 @@
   Location <%= f.select(:location_id, @locations.all.collect {|a| [a.name, a.id]}, :include_blank => "Choose a Location") -%></br>
   Name: <%= f.text_field :title %></br>
   Content: <%= f.text_area :context %></br>
-  Start Time: <%= f.datetime_select :start_time %></br>
-  End Time: <%= f.datetime_select :end_time %></br>
+  Start Time: <%= f.datetime_select :start_time, ampm: true %></br>
+  End Time: <%= f.datetime_select :end_time, ampm: true %></br>
   <%= f.submit "Add Workshop", class: "btn btn-warning" %>
 <% end %>

@@ -1,1 +1,7 @@
 <h1>Sign up</h1>
+<% unless alert %>
+  <%= form_for @follower do |f| %>
+    Email: <%= f.text_field :email %></br>
+    <%= f.submit "Get Updates", class: "btn btn-warning" %>
+  <% end %>
+<% end %>
