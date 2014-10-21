@@ -5,8 +5,8 @@ class CreateWorkshops < ActiveRecord::Migration
       t.text :context
       t.integer :places_id
       t.date :date
-      t.time :start_time
-      t.time :end_time
+      t.datetime :start_time
+      t.datetime :end_time
 
       t.timestamps
     end
