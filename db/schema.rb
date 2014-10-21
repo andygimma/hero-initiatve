@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141020041529) do
+ActiveRecord::Schema.define(version: 20141021000111) do
 
   create_table "locations", force: true do |t|
     t.string   "name"
@@ -48,7 +48,7 @@ ActiveRecord::Schema.define(version: 20141020041529) do
   create_table "workshops", force: true do |t|
     t.string   "title"
     t.text     "context"
-    t.integer  "places_id"
+    t.integer  "location_id"
     t.datetime "start_time"
     t.datetime "end_time"
     t.datetime "created_at"

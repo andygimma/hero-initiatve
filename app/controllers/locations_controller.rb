@@ -11,12 +11,13 @@ class LocationsController < ApplicationController
     else
       str = ""
       @location.errors.each do |e|
-        str += "#{e.to_s} is invalid\n"
+        str += "#{e.to_s} is invalid<br>"
       end
       flash[:alert] = str
       @location
 #       binding.pry
       redirect_to "/locations/new"
+      return
     end
   end
 
@@ -38,6 +39,7 @@ class LocationsController < ApplicationController
 
   def show
     @location = Location.find(params[:id])
+#     binding.pry
   end
 
   def index

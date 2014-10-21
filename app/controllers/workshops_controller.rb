@@ -7,6 +7,7 @@ class WorkshopsController < ApplicationController
   end
 
   def create
+    binding.pry
     @workshop= Workshop.create(workshop_params)
     if @workshop.valid?
       redirect_to workshops_path
@@ -52,6 +53,6 @@ class WorkshopsController < ApplicationController
   private
 
     def workshop_params
-      params.require(:workshop).permit(:title, :context, :places_id, :date, :start_time, :end_time)
+      params.require(:workshop).permit(:title, :context, :location_id, :date, :start_time, :end_time)
     end
 end

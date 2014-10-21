@@ -11,7 +11,8 @@ var osm = new L.TileLayer(osmUrl, {minZoom: 0, maxZoom: 12, attribution: osmAttr
 map.setView(new L.LatLng(40.7, -73.9),10);
 map.addLayer(osm);
 <% @locations.each do |location| %>
+
 L.marker([<%= location.latitude%>, <%=location.longitude%>]).addTo(map)
-    .bindPopup('<%=location.name%><br><%=location.address%><br><%=location.phone1%><br><%=location.email%><br><p>Upcoming Events</p>');
+    .bindPopup('<h2><%=location.name%></h2><%=location.address%><br><%=location.phone1%><br><%=location.email%><br><br><h3>Upcoming Events</h3><%= location.workshops_to_map.html_safe %>');
 <%end%>
 </script>

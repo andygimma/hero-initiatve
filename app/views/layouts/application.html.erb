@@ -23,7 +23,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                 </div>
                 <div id="menu">
                         <ul>
-                                <li class="active"><a href="/" accesskey="1" title="">Homepage</a></li>
+                                <li><a href="/" accesskey="1" title="">Homepage</a></li>
                                 <li><a href="/workshops" accesskey="2" title="">Workshops</a></li>
                                 <li><a href="/locations" accesskey="3" title="">Locations</a></li>
                                 <li><a href="#" accesskey="4" title="">Calendar</a></li>
@@ -44,10 +44,10 @@ License URL: http://creativecommons.org/licenses/by/3.0/
         <div id="three-column" class="container">
               
               <% if notice %>
-              <p class="notice"><%= notice %></p>
+              <p class="notice"><%= notice.html_safe %></p>
               <% end %>
               <% if alert %>
-              <p class="alert"><%= alert %></p>
+              <p class="alert"><%= alert.html_safe %></p>
               <% end %>
               <%= yield %>
 

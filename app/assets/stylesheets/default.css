@@ -540,3 +540,8 @@
           height: 500px;
           width: 100%;
         }
+        
+        .alert
+        { 
+          color: red;
+        }

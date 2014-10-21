@@ -12,4 +12,13 @@ class Location < ActiveRecord::Base
   def full_street_address
     @address = "#{self.address} #{self.city} #{self.state}"
   end
+  
+    
+  def workshops_to_map
+    @workshops = ""
+    self.workshops.each do |workshop|
+      @workshops += "#{workshop.title}<br>#{workshop.start_time.strftime("%B %d, %Y %a")}<br><br>"
+    end
+    @workshops
+  end
 end
