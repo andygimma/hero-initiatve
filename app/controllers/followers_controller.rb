@@ -5,7 +5,16 @@ class FollowersController < ApplicationController
   def create
     # create follower here
     @follower= Follower.create(follower_params)
-    flash[:notice] = "Thanks for following! You will get an email shortly."
+    if @follower.valid?
+      flash[:notice] = "Thanks for following! You will get an email shortly."
+    else
+      msg = "Email "
+      @follower.errors.messages[:email].each do |message|
+        msg += message + " "
+      flash[:alert] = msg
+      end
+      
+    end
     redirect_to "/static_pages/sign_up"
 
   end
