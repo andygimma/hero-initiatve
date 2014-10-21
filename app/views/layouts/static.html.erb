@@ -23,7 +23,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                 </div>
                 <div id="menu">
                         <ul>
-                                <li"><a href="/" accesskey="1" title="">Homepage</a></li>
+                                <li><a href="/" accesskey="1" title="">Homepage</a></li>
                                 <li><a href="/workshops" accesskey="2" title="">Workshops</a></li>
                                 <li><a href="/locations" accesskey="3" title="">Locations</a></li>
                                 <li><a href="#" accesskey="4" title="">Calendar</a></li>
@@ -33,7 +33,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                                   <li><a href="/admin/index" accesskey="8" title="">Admin</a></li>
                                   <li><%= link_to('Logout', destroy_user_session_path, :method => :delete) %></li>
                                 <% else %>
-                                  <li><a href="#" accesskey="7" title="">Sign Up</a></li>
+                                  <li><a href="/static_pages/sign_up" accesskey="7" title="">Sign Up</a></li>
                                   <li><a href="/users/sign_in" accesskey="8" title="">Login</a></li>
                                 <% end %>
                         </ul>
