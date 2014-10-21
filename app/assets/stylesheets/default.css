@@ -289,6 +289,8 @@
 		position: relative;
 		padding: 5em 0em 7em 0em;
 		background: #FFF;
+                text-align: left;
+                
 	}
 
 /*********************************************************************************/
@@ -648,3 +650,7 @@ select {
 /*.btn:hover {
     background: #CF7A7A
 }*/
+
+.left-justify {
+  text-align: left;
+}
