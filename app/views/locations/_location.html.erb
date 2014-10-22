@@ -1,6 +1,6 @@
-<p>
-<%=location.name%>
-<% if user_signed_in? %>
- | <a href="/locations/<%= location.id %>/edit">Edit</a>
-<% end %>
-</p>
+<h3>
+<a href="/locations/<%=location.id%>"><%=location.name%></a>
+</h3>
+<p><%=location.address%> <%=location.city%></p>
+<p>Phone: <%=location.phone1%></p>
+<p><%=location.email%></p>

@@ -7,7 +7,7 @@ class WorkshopsController < ApplicationController
   end
 
   def create
-    binding.pry
+#     binding.pry
     @workshop= Workshop.create(workshop_params)
     if @workshop.valid?
       redirect_to workshops_path

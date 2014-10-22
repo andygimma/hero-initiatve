@@ -1,3 +1,7 @@
 <h1><%= @location.name %></h1>
+
+<% if user_signed_in? %>
+<a class="button" href="/locations/<%= @location.id %>/edit">Edit</a>
 <%= link_to "Delete", @location, method: :delete,
       data: { confirm: "Delete: You sure? Cannot undo a delete." } %>
+<% end %>
