@@ -1,5 +1,8 @@
 Rails.application.routes.draw do
   get 'admin/index'
+  get 'admin/locations'
+  get 'admin/workshops'
+
   get 'static_pages/about'
   get 'static_pages/sign_up'
 
