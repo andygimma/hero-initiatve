@@ -1,0 +1,77 @@
+<!--A Design by W3layouts
+Author: W3layout
+Author URL: http://w3layouts.com
+License: Creative Commons Attribution 3.0 Unported
+License URL: http://creativecommons.org/licenses/by/3.0/
+-->
+<!DOCTYPE HTML>
+<html>
+<head>
+  <title>Hero2</title>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+<!--  <link href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+  <script src="http:////maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>-->
+
+</head>
+<body>
+<div id="header-wrapper">
+        <div id="header" class="container">
+                <div id="logo">
+                        <h1><a href="/">HERO Initiative</a></h1>
+                </div>
+                <div id="menu">
+                        <ul>
+                                <li><a href="/" accesskey="1" title="">Homepage</a></li>
+                                <li><a href="/workshops" accesskey="2" title="">Workshops</a></li>
+                                <li><a href="/locations" accesskey="3" title="">Locations</a></li>
+                                <li><a href="/workshops/calendar" accesskey="4" title="">Calendar</a></li>
+                                <li><a href="/locations/map" accesskey="5" title="">Map</a></li>
+                                <li><a href="/static_pages/about" accesskey="6" title="">About</a></li>
+                                <% if user_signed_in? %>
+                                  <li><a href="/admin/index" accesskey="8" title="">Admin</a></li>
+                                  <li><%= link_to('Logout', destroy_user_session_path, :method => :delete) %></li>
+                                <% else %>
+                                  <li><a href="/static_pages/sign_up" accesskey="7" title="">Sign Up</a></li>
+                                  <li><a href="/users/sign_in" accesskey="8" title="">Login</a></li>
+                                <% end %>
+                        </ul>
+                </div>
+        </div>
+</div>
+<div id="wrapper">
+        <div id="three-column" class="container">
+              
+              <% if notice %>
+              <p class="notice"><%= notice.html_safe %></p>
+              <% end %>
+              <% if alert %>
+              <p class="alert"><%= alert.html_safe %></p>
+              <% end %>
+              <%= yield %>
+
+        </div>
+</div>
+<div id="welcome">
+        <div class="container">
+                <div class="title">
+                        <h2>Everyone is a H.E.R.O.</h2>
+                        <span class="byline">Help share the human resource and allow it to be accessed through the H.E.R.O Initiative</span>
+                </div>
+                <p>Do you have a skill or a particular interest that you would like to share?</p>
+                <p>Are you willing to conduct (2) or (3) 1.5hr workshops at least every year sharing that skill?</p>
+                <ul class="actions">
+                        <li><a href="https://docs.google.com/forms/d/1CCKweW6P0mAyQWjUBitX8lxEprzYGuZJFnutVS_F6fo/viewform" class="button">Sign up here</a></li>
+                </ul>
+        </div>
+</div>
+<div id="copyright" class="container">
+        <p>&copy; Hero Initiative. All rights reserved. | Photos by <a href="http://fotogrph.com/">Fotogrph</a> | Design by <a href="http://templated.co" rel="nofollow">TEMPLATED</a>.</p>
+</div>
+</body>
+</html>
+
+        
+        
+            
