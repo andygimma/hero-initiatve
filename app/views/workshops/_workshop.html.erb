@@ -1,5 +1,5 @@
 <h3>
-<a href="/workshops/<%=workshop.id%>"><%=workshop.title%></a>
+<a class="button" href="/workshops/<%=workshop.id%>"><%=workshop.title%></a>
 </h3>
 <p><%=workshop.start_time.strftime("%m/%d/%Y")%></p>
 <p><%=workshop.start_time.strftime("%I:%M%p")%><%=workshop.end_time.strftime(" to %I:%M%p")%></p>
