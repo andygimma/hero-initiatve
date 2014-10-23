@@ -7,6 +7,8 @@ Rails.application.routes.draw do
   get 'static_pages/sign_up'
 
   match "create_user", to: "admin#create_user", via: [:get, :post]
+  get 'workshops/calendar' => 'workshops#calendar'
+
   resources :workshops
   get 'locations/map' => 'locations#map'
   resources :locations
