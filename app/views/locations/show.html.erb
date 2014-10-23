@@ -1,7 +1,39 @@
-<h1><%= @location.name %></h1>
 
-<% if user_signed_in? %>
-<a class="button" href="/locations/<%= @location.id %>/edit">Edit</a>
-<%= link_to "Delete", @location, method: :delete,
-      data: { confirm: "Delete: You sure? Cannot undo a delete." } %>
-<% end %>
+<div class="boxA">
+  <h1><%= @location.name %></h1>
+  <p><%=@location.address%> <%=@location.city%></p>
+  <p>Phone: <%=@location.phone1%></p>
+  <p><%=@location.email%></p>
+
+  <% if user_signed_in? %>
+  <a class="button" href="/locations/<%= @location.id %>/edit">Edit</a>
+  <%= link_to "Delete", @location, method: :delete,
+        data: { confirm: "Delete: You sure? Cannot undo a delete." } %>
+  <% end %>
+</div>
+<div class="boxB">
+  <% @location.workshops.each do |workshop| %>
+    <p><a href="/workshops/<%=workshop.id%>"><%=workshop.title%></a></p>
+    <p><%=workshop.start_time.strftime("%m/%d/%Y")%></p>
+    <p><%=workshop.start_time.strftime("%I:%M%p")%><%=workshop.end_time.strftime(" to %I:%M%p")%></p>
+  <% end %>
+</div>
+
+<div class="boxC">
+  <div id="map"></div>
+
+<script>
+  var map = L.map('map').setView([51.505, -0.09], 13);
+  var osmUrl='http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png';
+  var osmAttrib='Map data © OpenStreetMap contributors';
+  var osm = new L.TileLayer(osmUrl, {minZoom: 0, maxZoom: 12, attribution: osmAttrib});           
+
+  // start the map in South-East England
+  map.setView(new L.LatLng(40.7, -73.9),10);
+  map.addLayer(osm);
+
+  L.marker([<%= @location.latitude%>, <%=@location.longitude%>]).addTo(map)
+      .bindPopup('<h2><%=@location.name%></h2><%=@location.address%><br><%=@location.phone1%><br><%=@location.email%>');
+  </script>
+
+</div>
