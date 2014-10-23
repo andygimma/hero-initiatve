@@ -6,4 +6,6 @@ class Workshop < ActiveRecord::Base
   validates :start_time, presence: true
   validates :end_time, presence: true
 
+  default_scope { order('start_time ASC') }
+
 end
