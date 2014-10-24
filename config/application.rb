@@ -21,7 +21,8 @@ module Hero2
     # config.i18n.default_locale = :de
     # config/application.rb
     config.assets.precompile += [
-      'header-bg.jpg'
+      'header-bg.jpg',
+      'bvsjphoto.jpg'
     ]
   end
 end
