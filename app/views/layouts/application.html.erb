@@ -55,7 +55,11 @@ License URL: http://creativecommons.org/licenses/by/3.0/
         </div>
 </div>
 <div id="copyright" class="container">
-     <p> <%= image_tag("bvsjlogo.jpg", size: "120", :class=>"circular") %> </p>
+     <p> 
+       <%= link_to 'http://www.bvsj.org', title: 'BVSJ' do %>
+       <%= image_tag("bvsjlogo.jpg", size: "120x120", :class=>"circular") %>
+       <% end %>
+     </p>
      <p>The HERO Initiative is a project from <a href="http://www.bvsj.org">Black Veterans for Social Justice</a>.</p>
 
 </div>
