@@ -22,7 +22,8 @@ module Hero2
     # config/application.rb
     config.assets.precompile += [
       'header-bg.jpg',
-      'bvsjphoto.jpg'
+      'bvsjphoto.jpg',
+      'office.jpg'
     ]
   end
 end
