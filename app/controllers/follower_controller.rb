@@ -6,6 +6,7 @@ class FollowerController < ApplicationController
     # create follower here
     @follower= Follower.create(follower_params)
     flash[:notice] = "Thanks for following! You will get an email shortly."
+    UserMailer.welcome_email(@follower.email).deliver
     redirect_to root_path
 
   end
