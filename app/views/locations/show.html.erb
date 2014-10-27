@@ -12,6 +12,7 @@
   <% end %>
 </div>
 <div class="boxB">
+  <h2>Upcoming Schedule</h2>
   <% @location.workshops.each do |workshop| %>
     <p><a class="button" href="/workshops/<%=workshop.id%>"><%=workshop.title%></a></p>
     <p><%=workshop.start_time.strftime("%m/%d/%Y")%></p>
