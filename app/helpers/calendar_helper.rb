@@ -1,5 +1,5 @@
 module CalendarHelper
-  def calendar(date = Date.today, &block)
+  def calendar(date = Date.today.next_month, &block)
     Calendar.new(self, date, block).table
   end
 
