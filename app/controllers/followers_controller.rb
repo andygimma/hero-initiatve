@@ -7,6 +7,8 @@ class FollowersController < ApplicationController
     @follower= Follower.create(follower_params)
     if @follower.valid?
       flash[:notice] = "Thanks for following! You will get an email shortly."
+      UserMailer.welcome_email(@follower.email).deliver
+
     else
       msg = "Email "
       @follower.errors.messages[:email].each do |message|
