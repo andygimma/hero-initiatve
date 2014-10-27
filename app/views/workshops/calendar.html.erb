@@ -6,5 +6,12 @@
 <div id="articles">
   <%= calendar do |date| %>
     <%= date.day %>
+    <% if @workshops_by_date[date] %>
+      <ul>
+        <% @workshops_by_date[date].each do |workshop| %>
+          <li><%= link_to workshop.title, workshop %></li>
+        <% end %>
+      </ul>
+    <% end %>
   <% end %>
 </div>

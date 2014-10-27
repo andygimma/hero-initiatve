@@ -7,5 +7,11 @@ class Workshop < ActiveRecord::Base
   validates :end_time, presence: true
 
   default_scope { order('start_time ASC') }
+  
+  before_save :add_start_date
+  
+  def add_start_date
+    self.start_date = self.start_time.to_date
+  end
 
 end

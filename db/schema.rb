@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141021005045) do
+ActiveRecord::Schema.define(version: 20141027032915) do
 
   create_table "followers", force: true do |t|
     t.string   "email"
@@ -59,6 +59,7 @@ ActiveRecord::Schema.define(version: 20141021005045) do
     t.datetime "end_time"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.date     "start_date"
   end
 
 end

@@ -50,6 +50,12 @@ class WorkshopsController < ApplicationController
     @workshops = Workshop.paginate(:page => params[:page]).where("start_time >= :date", date: 1.day.ago).order(start_time: :desc)
   end
   
+  def calendar
+    @workshops = Workshop.all
+    @workshops_by_date = @workshops.group_by(&:start_date)
+  end
+  
+  
   private
 
     def workshop_params
