@@ -25,5 +25,12 @@ module Hero2
       'bvsjphoto.jpg',
       'office.jpg'
     ]
+    
+    config.middleware.insert_before "ActionDispatch::Static", "Rack::Cors" do
+      allow do
+        origins '*'
+        resource '/api/*', :headers => :any, :methods => [:get, :post, :options]
+      end
+    end
   end
 end

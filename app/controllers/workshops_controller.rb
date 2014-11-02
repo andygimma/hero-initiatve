@@ -53,7 +53,6 @@ class WorkshopsController < ApplicationController
   def calendar
     @workshops = Workshop.all
     @workshops_by_date = @workshops.group_by(&:start_date)
-    binding.pry
   end
   
   

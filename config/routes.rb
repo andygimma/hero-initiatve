@@ -1,4 +1,12 @@
 Rails.application.routes.draw do
+  get 'api/locations'
+
+  get 'api/workshops'
+
+  get 'api/map'
+
+  get 'api/sign_up'
+
   get 'admin/index'
   get 'admin/locations'
   get 'admin/workshops'
