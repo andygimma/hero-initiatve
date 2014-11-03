@@ -14,9 +14,11 @@
 <div class="boxB">
   <h2>Upcoming Schedule</h2>
   <% @location.workshops.each do |workshop| %>
-    <p><a class="button" href="/workshops/<%=workshop.id%>"><%=workshop.title%></a></p>
-    <p><%=workshop.start_time.strftime("%m/%d/%Y")%></p>
-    <p><%=workshop.start_time.strftime("%I:%M%p")%><%=workshop.end_time.strftime(" to %I:%M%p")%></p>
+    <% if workshop.start_time > 1.day.ago %>
+      <p><a class="button" href="/workshops/<%=workshop.id%>"><%=workshop.title%></a></p>
+      <p><%=workshop.start_time.strftime("%m/%d/%Y")%></p>
+      <p><%=workshop.start_time.strftime("%I:%M%p")%><%=workshop.end_time.strftime(" to %I:%M%p")%></p>
+    <% end %>
   <% end %>
 </div>
 

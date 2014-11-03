@@ -8,7 +8,7 @@ class FollowerController < ApplicationController
     @follower= Follower.create(follower_params)
     flash[:notice] = "Thanks for following! You will get an email shortly."
     binding.pry
-    UserMailer.welcome_email(@follower.email).deliver
+#     UserMailer.welcome_email(@follower.email).deliver
 #     Mail.deliver do
 #       to @follower.email
 #       from 'sender@example.comt'

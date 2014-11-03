@@ -17,7 +17,9 @@ class Location < ActiveRecord::Base
   def workshops_to_map
     @workshops = ""
     self.workshops.each do |workshop|
-      @workshops += "<a href=\"/workshops/#{workshop.id}\">#{workshop.title}</a><br>#{workshop.start_time.strftime("%B %d, %Y %a")}<br><br>"
+      if workshop.start_time > 1.day.ago
+        @workshops += "<a href=\"/workshops/#{workshop.id}\">#{workshop.title}</a><br>#{workshop.start_time.strftime("%B %d, %Y %a")}<br><br>"
+      end
     end
     @workshops
   end
