@@ -5,9 +5,13 @@ class UserMailer < ActionMailer::Base
     # TODO Send to multiple emails
     # Create a subject that depends on the day?
     # Create content that includes content, and includes a list of workshops for the week.
+    email_json = email.to_json
+    email_to_json = {:to => email}.to_json
     @workshops = Workshop.where("start_time >= ? AND end_time <= ?", 1.day.ago, 7.days.from_now)
-    headers["X-SMTPAPI"] = { :to => email.to_json }
+    headers["X-SMTPAPI"] = email_to_json
     mail(to: email, subject: "HERO workshops for the week of #{Date.today.strftime('%A %B %d') }")
+    #try email_json
+    #try email_to_json
 #     @workshops = Workshop.all
     
         
