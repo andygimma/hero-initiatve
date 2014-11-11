@@ -8,9 +8,9 @@ namespace :newsletter do
       @followers.each do |follower|
         followers_array << follower.email
       end
-#       UserMailer.welcome_email([followers_array]).deliver
+      UserMailer.welcome_email([followers_array]).deliver
 
-      UserMailer.welcome_email(["andy.n.gimma@gmail.com", "adaptdroid@gmail.com"]).deliver
+#       UserMailer.welcome_email(["andy.n.gimma@gmail.com", "adaptdroid@gmail.com"]).deliver
       puts "done"
     else 
       puts "not sending email, wrong day of the week"
