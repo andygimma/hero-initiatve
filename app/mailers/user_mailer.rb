@@ -1,12 +1,13 @@
 class UserMailer < ActionMailer::Base
   default from: "Hero@theheroinitiative.org"
   
-  def welcome_email(email)
+  def welcome_email(email_array)
     # TODO Send to multiple emails
     # Create a subject that depends on the day?
     # Create content that includes content, and includes a list of workshops for the week.
     @workshops = Workshop.where("start_time >= ? AND end_time <= ?", 1.day.ago, 7.days.from_now)
-    mail(to: email, subject: "HERO workshops for the week of #{Date.today.strftime('%A %B %d') }")
+    headers["X-SMTPAPI"] = { :to => email_array }.to_json
+    mail(to: email_array, subject: "HERO workshops for the week of #{Date.today.strftime('%A %B %d') }")
 #     @workshops = Workshop.all
     
         
