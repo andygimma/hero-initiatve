@@ -6,7 +6,7 @@ class UserMailer < ActionMailer::Base
     # Create a subject that depends on the day?
     # Create content that includes content, and includes a list of workshops for the week.
     @workshops = Workshop.where("start_time >= ? AND end_time <= ?", 1.day.ago, 7.days.from_now)
-    mail(to: email, subject: "This week's HERO workshops")
+    mail(to: email, subject: "HERO workshops for the week of #{Date.today.strftime('%A %B %d') }")
 #     @workshops = Workshop.all
     
         
