@@ -1,5 +1,5 @@
 class UserMailer < ActionMailer::Base
-  default from: "admin@theheroinitiative.org"
+  default from: "Hero@theheroinitiative.org"
   
   def welcome_email(email)
     # TODO Send to multiple emails
