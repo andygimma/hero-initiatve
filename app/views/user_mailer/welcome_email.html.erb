@@ -2,7 +2,7 @@
 <p>Check out our upcoming classes for this week.</p>
 
 <% @workshops.each do |workshop| %>
-  <h3><%= workshop.title %></h3>
+  <h3><a href="http://www.theheroinitiative.com/workshops/<%=workshop.id%>"><%= workshop.title %></a></h3>
   <p><%=workshop.start_time.strftime("%I:%M%p")%><%=workshop.end_time.strftime(" to %I:%M%p")%></p>
   <p>At <%=workshop.location.name%></p>
   <p><%=workshop.location.address%> <%=workshop.location.city%></p>  
