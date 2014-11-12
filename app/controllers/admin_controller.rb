@@ -1,8 +1,8 @@
 class AdminController < ApplicationController
-  before_action :authenticate_user!
+  before_action :check_admin
 
   def index
-    binding.pry
+    
   end
 
   def create_user
@@ -40,4 +40,11 @@ class AdminController < ApplicationController
   def workshops
     @workshops = Workshop.all
   end
+  
+  private
+    def check_admin
+      if not current_user.admin?
+        redirect_to root_path
+      end
+    end
 end

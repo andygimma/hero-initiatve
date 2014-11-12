@@ -31,9 +31,12 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                                 <li class="navLi"><a href="/static_pages/about" accesskey="6" title="">About</a></li>
                                 <% if user_signed_in? and current_user.admin?%>
                                   <li class="navLi"><a href="/admin/index" accesskey="8" title="">Admin</a></li>
-                                  <li class="navLi"><%= link_to('Logout', destroy_user_session_path, :method => :delete) %></li>
                                 <% else %>
                                   <li class="navLi"><a href="/static_pages/sign_up" accesskey="7" title="">Sign Up</a></li>
+                                <% end %>
+                                <% if user_signed_in? %>
+                                  <li class="navLi"><%= link_to('Logout', destroy_user_session_path, :method => :delete) %></li>
+                                <% else %>
                                   <li class="navLi"><a href="/users/sign_in" accesskey="8" title="">Login</a></li>
                                 <% end %>
                         </ul>

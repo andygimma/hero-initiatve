@@ -1,5 +1,5 @@
 class LocationsController < ApplicationController
-  before_action :authenticate_user!, only: [:new, :create, :edit, :update, :destroy]
+  before_action :check_admin, only: [:new, :create, :edit, :update, :destroy]
   def new
     @location = Location.new
   end
@@ -54,5 +54,11 @@ class LocationsController < ApplicationController
 
     def location_params
       params.require(:location).permit(:name, :address, :city, :state, :phone1, :email)
+    end
+    
+    def check_admin
+      if not current_user.admin?
+        redirect_to root_path
+      end
     end
 end

@@ -1,5 +1,5 @@
 class WorkshopsController < ApplicationController
-  before_action :authenticate_user!, only: [:new, :create, :edit, :update, :destroy]
+  before_action :check_admin, only: [:new, :create, :edit, :update, :destroy]
   def new
     @workshop = Workshop.new
     @locations = Location.all
@@ -60,5 +60,11 @@ class WorkshopsController < ApplicationController
 
     def workshop_params
       params.require(:workshop).permit(:title, :context, :location_id, :date, :start_time, :end_time)
+    end
+    
+    def check_admin
+      if not current_user.admin?
+        redirect_to root_path
+      end
     end
 end
