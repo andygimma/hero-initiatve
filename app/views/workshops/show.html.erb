@@ -3,11 +3,7 @@
 
 <div class="boxA">
   <h1><%= @workshop.title %></h1>
-  <p>At <a href="/locations/<%=@workshop.location.id%>"><%=@workshop.location.name%></a></p>
-  <p><%=@workshop.location.address%> <%=@workshop.location.city%></p>
-  <p>Date: <%=@workshop.start_time.strftime("%m/%d/%Y")%></p>
-  <p><%=@workshop.start_time.strftime("%I:%M%p")%><%=@workshop.end_time.strftime(" to %I:%M%p")%></p>
-  <p>RSVPs: <%= @workshop.rsvps.count %></p>
+    <p>RSVPs: <%= @workshop.rsvps.count %></p>
   
 <!--   If they don't have an RSVP, give them this button -->
   <% if @rsvp.count > 0 %>
@@ -16,6 +12,11 @@
     <a class="button" href="/workshops/<%= @workshop.id %>/rsvp">RSVP</a><br>
   <% end %>
 <!--   If they have an RSVP let them cancel it -->
+  <p>At <a href="/locations/<%=@workshop.location.id%>"><%=@workshop.location.name%></a></p>
+  <p><%=@workshop.location.address%> <%=@workshop.location.city%></p>
+  <p>Date: <%=@workshop.start_time.strftime("%m/%d/%Y")%></p>
+  <p><%=@workshop.start_time.strftime("%I:%M%p")%><%=@workshop.end_time.strftime(" to %I:%M%p")%></p>
+
 
   <% if user_signed_in? and current_user.admin? %>
     <br>
