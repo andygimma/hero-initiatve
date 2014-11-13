@@ -41,6 +41,10 @@ class WorkshopsController < ApplicationController
 
   def show
     @workshop = Workshop.find(params[:id])
+    @rsvp = []
+    if current_user
+      @rsvp = Rsvp.where(user_id: current_user.id, workshop_id: params[:id])
+    end
 #     binding.pry
   end
 
@@ -63,7 +67,10 @@ class WorkshopsController < ApplicationController
     end
     
     def check_admin
-      if not current_user.admin?
+      if not current_user
+        redirect_to "/users/sign_in"
+      end
+      if current_user and not current_user.admin?
         redirect_to root_path
       end
     end

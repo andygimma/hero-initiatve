@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  match 'workshops/:id/rsvp', to: "rsvp#create", via: [:get]
+  match 'workshops/:id/cancel_rsvp', to: "rsvp#destroy", via: [:get]
   get 'api/locations'
 
   get 'api/workshops'

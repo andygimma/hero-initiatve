@@ -1,5 +1,6 @@
 class Workshop < ActiveRecord::Base
   belongs_to :location
+  has_many :rsvps
   validates :title, presence: true
   validates :context, presence: true
   validates :location_id, presence: true
