@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  match "users/profile/:id", to: "user#profile", via: [:get]
   match 'workshops/:id/rsvp', to: "rsvp#create", via: [:get]
   match 'workshops/:id/cancel_rsvp', to: "rsvp#destroy", via: [:get]
   get 'api/locations'

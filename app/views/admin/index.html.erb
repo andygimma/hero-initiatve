@@ -6,21 +6,5 @@
       <li><a href="/admin/locations" class="button">Edit Location</a></li>
       <li><a href="/admin/workshops" class="button">Edit Workshop</a></li>
 </ul>
-
-<h1>Create User</h1>
-<form name="create_user" action="/create_user" method="post">
-  <div class="form-group">
-      <label for="email">Email</label>
-      <input type="email" class="form-control" id="email" placeholder="Email" name="email">
-  </div>
-  <div class="form-group">
-      <label for="password">Password</label>
-      <input type="password" class="form-control" id="password" placeholder="Password" name="password"s>
-  </div>
-<!--    <div class="form-group">
-      <label for="repeat_password">Repeat Password</label>
-      <input type="password" class="form-control" id="repeat_password" placeholder="Password" name="repeat_password">
-  </div>-->
-  <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>" />
-  <button type="submit" id="my_btn" class="btn btn-primary">Create User</button>
+<!--<p><a href="/users/profile/<%= current_user.id%>">My Profile</a></p>-->
 </form>

@@ -1,0 +1,24 @@
+<div class="boxA">
+  <h1>Upcoming Workshops</h1>
+  <% @workshops.each do |workshop| %>
+    <h3><a href="http://www.theheroinitiative.org/workshops/<%=workshop.id%>"><%= workshop.title %></a></h3>
+    <p><%=workshop.start_time.strftime("%I:%M%p")%><%=workshop.end_time.strftime(" to %I:%M%p")%></p>
+    <p>At <%=workshop.location.name%></p>
+    <p><%=workshop.location.address%> <%=workshop.location.city%></p>  
+    <p><%= truncate(workshop.context, :length => 50) %></p>
+  <% end %>
+</div>
+
+<div class="boxB">
+  <h1>My RSVPs</h1>
+  <% @rsvps.each do |rsvp| %>
+    <p><a href="http://www.theheroinitiative.org/workshops/<%=rsvp.workshop.id%>"><%= rsvp.workshop.title %></a></p>
+  <% end %>
+</div>
+
+<div class="boxC">
+  <h1>Become a HERO</h1>
+  <h3>Teach your own workshop</h3>
+  <a class="button" href="/workshops/new">Create a Workshop</a>
+
+</div>
