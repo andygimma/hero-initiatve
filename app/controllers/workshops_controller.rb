@@ -1,6 +1,7 @@
 class WorkshopsController < ApplicationController
   before_action :check_admin, only: [:new, :create, :edit, :update, :destroy]
   def new
+#     binding.pry
     @workshop = Workshop.new
     @locations = Location.all
   end
@@ -16,9 +17,9 @@ class WorkshopsController < ApplicationController
         str += "#{e.to_s}"
       end
       flash[:alert] = str
-      @location
+      @locations = Location.all
 #       binding.pry
-      redirect_to "/workshops/new"
+      render "/workshops/new"
     end
   end
 
