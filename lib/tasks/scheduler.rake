@@ -4,11 +4,16 @@ namespace :newsletter do
     if t.tuesday? or t.thursday? or t.sunday?
       puts "sending email"
       @followers = Follower.all
+      @users = User.all
       followers_array = []
       @followers.each do |follower|
         followers_array << follower.email
       end
-      UserMailer.welcome_email([followers_array]).deliver
+      @user.each do |user|
+        followers_array << user.email
+      end
+      final_array = followers_array.uniq
+      UserMailer.welcome_email([final_array]).deliver
 
 #       UserMailer.welcome_email(["andy.n.gimma@gmail.com", "adaptdroid@gmail.com"]).deliver
       puts "done"
