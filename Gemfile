@@ -59,3 +59,5 @@ gem 'pry-rails'
 gem 'rails_12factor', group: :production
 
 gem 'rack-cors', :require => 'rack/cors'
+
+gem 'sqlite3', group: :test, :development
