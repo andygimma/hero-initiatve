@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141208001601) do
+ActiveRecord::Schema.define(version: 20141208022127) do
 
   create_table "followers", force: true do |t|
     t.string   "email"
@@ -69,6 +69,7 @@ ActiveRecord::Schema.define(version: 20141208001601) do
     t.datetime "updated_at"
     t.date     "start_date"
     t.boolean  "approved",    default: false
+    t.string   "user_id"
   end
 
 end

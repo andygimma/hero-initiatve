@@ -5,5 +5,6 @@
   Content: <%= f.text_area :context %></br>
   Start Time: <%= f.datetime_select :start_time, ampm: true %></br>
   End Time: <%= f.datetime_select :end_time, ampm: true %></br>
+  <%= f.hidden_field :user_id, :value => current_user.id %>
   <%= f.submit "Add Workshop", class: "btn btn-warning" %>
 <% end %>

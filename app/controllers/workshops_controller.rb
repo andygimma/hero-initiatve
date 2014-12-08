@@ -31,15 +31,23 @@ class WorkshopsController < ApplicationController
 
   def update
     @workshop = Workshop.find(params[:id])
-#     binding.pry
-    @workshop.update(workshop_params)
-    redirect_to workshops_path(@workshop) 
+    
+    if current_user.admin? or current_user.id = @workshop.id
+      @workshop.update(workshop_params)
+      redirect_to workshops_path(@workshop)
+    else
+      redirect_to workshops_path
+    end
+ 
   end
 
   def edit
     @workshop = Workshop.find(params["id"]) 
-#     binding.pry
-    @locations = Location.all
+    if current_user.admin? or current_user.id = @workshop.id
+      @locations = Location.all
+    else
+      redirect_to workshops_path
+    end
   end
 
   def destroy
@@ -73,7 +81,7 @@ class WorkshopsController < ApplicationController
   end
   
   def pending
-    @workshops = Workshop.paginate(:page => params[:page])
+    @workshops = Workshop.paginate(:page => params[:page]).where(approved: false)
   end
   
   def approve
@@ -86,7 +94,7 @@ class WorkshopsController < ApplicationController
   private
 
     def workshop_params
-      params.require(:workshop).permit(:title, :context, :location_id, :date, :start_time, :end_time)
+      params.require(:workshop).permit(:title, :context, :location_id, :date, :start_time, :end_time, :user_id)
     end
     
     def check_admin
