@@ -16,6 +16,7 @@ class WorkshopsController < ApplicationController
 #     binding.pry
     @workshop= Workshop.create(workshop_params)
     if @workshop.valid?
+      UserMailer.new_workshop_email(["jelanimashariki@gmail.com"], @workshop).deliver
       redirect_to workshops_path
     else
       str = ""

@@ -18,4 +18,9 @@ class UserMailer < ActionMailer::Base
 #         Workshop.where("start_time >= :date and end_time <= :date2", date: 1.day.ago, date2: 7.days.from_now).order(start_time: :desc)
 
   end
+  
+  def new_workshop_email(email, workshop)
+    @workshop = workshop
+    mail(to: email, subject: "New HERO Workshop")
+  end
 end
