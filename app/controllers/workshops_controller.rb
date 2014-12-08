@@ -4,7 +4,7 @@ class WorkshopsController < ApplicationController
   # a user either needs ownership, or to be an admin... I guess we can't do this before.
   # so before filter is user_authentication!
   # in edit, update, destroy, needs to be either admin, or have ownership
-  before_action :check_admin, only: [:new, :create, :edit, :update, :destroy]
+  before_action :check_admin, only: [:new, :create, :edit, :update, :destroy, :approve]
   # check ownership
   def new
 #     binding.pry
@@ -31,12 +31,14 @@ class WorkshopsController < ApplicationController
 
   def update
     @workshop = Workshop.find(params[:id])
+#     binding.pry
     @workshop.update(workshop_params)
     redirect_to workshops_path(@workshop) 
   end
 
   def edit
     @workshop = Workshop.find(params["id"]) 
+#     binding.pry
     @locations = Location.all
   end
 
@@ -48,6 +50,10 @@ class WorkshopsController < ApplicationController
 
   def show
     @workshop = Workshop.find(params[:id])
+#     binding.pry
+    if @workshop.approved == false and not current_user.admin?
+      redirect_to workshops_path
+    end
     @rsvp = []
     if current_user
       @rsvp = Rsvp.where(user_id: current_user.id, workshop_id: params[:id])
@@ -58,12 +64,22 @@ class WorkshopsController < ApplicationController
   def index
     # get only after today's date
     some_date = Date.yesterday
-    @workshops = Workshop.paginate(:page => params[:page]).where("start_time >= :date", date: 1.day.ago).order(start_time: :desc)
+    @workshops = Workshop.paginate(:page => params[:page]).where("start_time >= :date", date: 1.day.ago).where(approved: true).order(start_time: :desc)
   end
   
   def calendar
-    @workshops = Workshop.all
+    @workshops = Workshop.where(approved: true)
     @workshops_by_date = @workshops.group_by(&:start_date)
+  end
+  
+  def pending
+    @workshops = Workshop.paginate(:page => params[:page])
+  end
+  
+  def approve
+    @workshop = Workshop.find(params[:id])
+    @workshop.update_attributes(approved: true)
+    redirect_to "/workshops/#{@workshop.id}"
   end
   
   

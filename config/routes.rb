@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  match 'workshops/pending', to: "workshops#pending", via: [:get]
+  match 'workshops/pending/:id', to: "workshops#approve", via: [:get]
   match "users/profile/:id", to: "user#profile", via: [:get]
   match 'workshops/:id/rsvp', to: "rsvp#create", via: [:get]
   match 'workshops/:id/cancel_rsvp', to: "rsvp#destroy", via: [:get]

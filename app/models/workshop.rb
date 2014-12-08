@@ -11,6 +11,7 @@ class Workshop < ActiveRecord::Base
   
   before_save :add_start_date
   
+  
   def add_start_date
     self.start_date = self.start_time.to_date
 #     binding.pry

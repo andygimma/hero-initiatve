@@ -2,6 +2,9 @@
 
 
 <div class="boxA">
+  <% if @workshop.approved == false %>
+    <a class="button" href="/workshops/pending/<%= @workshop.id %>">Approve</a>
+  <% end %>
   <h1><%= @workshop.title %></h1>
     <p>RSVPs: <%= @workshop.rsvps.count %></p>
   
