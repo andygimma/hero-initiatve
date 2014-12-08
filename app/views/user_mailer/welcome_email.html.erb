@@ -1,7 +1,10 @@
-<h2>The Hero Initiative - New Workshop</h2>
+<h2>The Hero Initiative</h2>
+<p>Check out our upcoming classes for this week.</p>
 
-<h3><a href="http://www.theheroinitiative.org/@workshops/<%=@workshop.id%>"><%= @workshop.title %></a></h3>
-<p><%=@workshop.start_time.strftime("%I:%M%p")%><%=@workshop.end_time.strftime(" to %I:%M%p")%></p>
-<p>At <%=@workshop.location.name%></p>
-<p><%=@workshop.location.address%> <%=@workshop.location.city%></p>  
-<p><%= @workshop.context %></p>
+<% @workshops.each do |workshop| %>
+  <h3><a href="http://www.theheroinitiative.org/workshops/<%=workshop.id%>"><%= workshop.title %></a></h3>
+  <p><%=workshop.start_time.strftime("%I:%M%p")%><%=workshop.end_time.strftime(" to %I:%M%p")%></p>
+  <p>At <%=workshop.location.name%></p>
+  <p><%=workshop.location.address%> <%=workshop.location.city%></p>  
+  <p><%= workshop.context %></p>
+<% end %>
