@@ -20,5 +20,9 @@
   <h1>Become a HERO</h1>
   <h3>Teach your own workshop</h3>
    <a class="button" href="/workshops/new">Create a Workshop</a> 
+  <h1>My Workshops</h1>
+  <% current_user.workshops.each do |workshop| %>
+    <p><a class="button" href="/workshops/<%=workshop.id%>"><%=workshop.title%></a></p>
+  <% end %>
 
 </div>
