@@ -1,8 +1,9 @@
 <h2>Workshops new</h2>
 <%= form_for @workshop do |f| %>
   Location <%= f.select(:location_id, @locations.all.collect {|a| [a.name, a.id]}, :include_blank => "Choose a Location") -%></br>
-  Name: <%= f.text_field :title %></br>
-  Content: <%= f.text_area :context %></br>
+  Name of workshop:<br> <%= f.text_field :title %></br>
+  Description:<br> <%= f.text_area :context %></br>
+  List of needs:<br> <%= f.text_area :needs %></br>
   Start Time: <%= f.datetime_select :start_time, ampm: true %></br>
   End Time: <%= f.datetime_select :end_time, ampm: true %></br>
   <%= f.hidden_field :user_id, :value => current_user.id %>

@@ -41,7 +41,8 @@ class WorkshopsController < ApplicationController
     
     if current_user.admin? or current_user.id = @workshop.id
       @workshop.update(workshop_params)
-      redirect_to workshops_path(@workshop)
+      flash[:notice] = "#{@workshop.title} updated"
+      redirect_to "/workshops/#{@workshop.id}"
     else
       redirect_to workshops_path
     end
@@ -101,7 +102,7 @@ class WorkshopsController < ApplicationController
   private
 
     def workshop_params
-      params.require(:workshop).permit(:title, :context, :location_id, :date, :start_time, :end_time, :user_id)
+      params.require(:workshop).permit(:title, :context, :location_id, :date, :start_time, :end_time, :user_id, :needs)
     end
     
     def check_admin
