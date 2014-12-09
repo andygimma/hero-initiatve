@@ -22,7 +22,7 @@
    <a class="button" href="/workshops/new">Create a Workshop</a> 
   <h1>My Workshops</h1>
   <% current_user.workshops.each do |workshop| %>
-    <p><a class="button" href="/workshops/<%=workshop.id%>"><%=workshop.title%></a></p>
+    <p><a class="button" href="/workshops/<%=workshop.id%>/edit"><%=workshop.title%></a></p>
   <% end %>
 
 </div>
