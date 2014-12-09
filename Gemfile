@@ -3,12 +3,22 @@ source 'https://rubygems.org'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.1.1'
-# Use sqlite3 as the database for Active Record
-group :development, :test do
+
+group :test, :development do
   gem 'rspec-rails'
-  # Use sqlite3 as the database for Active Record
+  gem 'factory_girl_rails'
+  gem 'capybara'
+  gem 'database_cleaner'
+  gem 'selenium-webdriver'
+  gem 'guard'
+  gem 'guard-livereload'
+  gem 'faker'
+  gem 'pry'
+  gem 'shoulda-matchers', require: false
+  gem 'cucumber-rails', require: false
   gem 'sqlite3'
 end
+
 gem 'pg'
 
 # Use SCSS for stylesheets
