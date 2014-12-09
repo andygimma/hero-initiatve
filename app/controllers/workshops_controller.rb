@@ -4,7 +4,7 @@ class WorkshopsController < ApplicationController
   # a user either needs ownership, or to be an admin... I guess we can't do this before.
   # so before filter is user_authentication!
   # in edit, update, destroy, needs to be either admin, or have ownership
-  before_action :check_admin, only: [:new, :create, :edit, :update, :destroy, :approve]
+  before_action :check_admin, only: [:approve]
   # check ownership
   def new
 #     binding.pry

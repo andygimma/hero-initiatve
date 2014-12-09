@@ -7,4 +7,5 @@ class User < ActiveRecord::Base
   
   has_many :rsvps
   has_many :workshops
+  has_many :locations
 end
