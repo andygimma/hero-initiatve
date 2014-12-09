@@ -26,7 +26,14 @@
     <a class="button" href="/workshops/<%= @workshop.id %>/edit">Edit</a>
     <%= link_to "Delete", @workshop, method: :delete,
         data: { confirm: "Delete: You sure? Cannot undo a delete." } %>
-<% end %>
+  <% end %>
+  
+  <% if user_signed_in? and not current_user.admin? and current_user.id == @workshop.id %>
+    <br>
+    <a class="button" href="/workshops/<%= @workshop.id %>/edit">Edit</a>
+    <%= link_to "Delete", @workshop, method: :delete,
+        data: { confirm: "Delete: You sure? Cannot undo a delete." } %>
+  <% end %>
 
 </div>
 <div class="boxB">

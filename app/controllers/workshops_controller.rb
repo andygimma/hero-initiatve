@@ -16,7 +16,13 @@ class WorkshopsController < ApplicationController
 #     binding.pry
     @workshop= Workshop.create(workshop_params)
     if @workshop.valid?
-      UserMailer.new_workshop_email(["jelanimashariki@gmail.com"], @workshop).deliver
+      begin
+        UserMailer.new_workshop_email(["jelanimashariki@gmail.com"], @workshop).deliver
+      rescue
+        puts "mail failed to send"
+      end
+      flash[:notice] = "Thank you! The workshop you added will be reviewed by a site administrator."
+
       redirect_to workshops_path
     else
       str = ""
