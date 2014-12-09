@@ -23,7 +23,7 @@ class WorkshopsController < ApplicationController
       end
       flash[:notice] = "Thank you! The workshop you added will be reviewed by a site administrator."
 
-      redirect_to workshops_path
+      redirect_to "/users/profile/#{current_user.id}"
     else
       str = ""
       @workshop.errors.messages.each do |e|
